@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="style.css" media="all" rel="stylesheet" />
 </head>
 <body>
-  <h1>Hi there</h1>
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.js"></script>
-  <script src="//builds.emberjs.com/release/ember.js"></script>
-  <script type="text/javascript">
-    console.log("hi");
+  <script type="text/x-handlebars">
+    {{outlet}}
   </script>
+
+  <script type="text/x-handlebars" id="dash">
+    <p>You have scored {{pointsString}} points.</p>
+    <button {{action 'addPoint'}}>Add point</button>
+    <button {{action 'reset'}}>Reset</button>
+  </script>
+
+  <script src="jquery-1.11.0.min.js"></script>
+  <script src="handlebars-1.1.2.js"></script>
+  <script src="ember-1.5.1.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
 
