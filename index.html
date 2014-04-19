@@ -10,8 +10,14 @@
 
   <script type="text/x-handlebars" id="dash">
     <p>You have scored {{pointsString}} points.</p>
-    <button {{action 'addPoint'}}>Add point</button>
-    <button {{action 'reset'}}>Reset</button>
+    {{#button action='addPoint'}}Add point{{/button}}
+    {{#button action='reset'}}Reset{{/button}}
+
+    <hr/>
+    {{#each debugs}}
+      <div class="debug-item">{{name}}: {{value}}</div>
+    {{/each}}
+    </dl>
   </script>
 
   <script src="jquery-1.11.0.min.js"></script>
