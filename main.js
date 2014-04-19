@@ -1,18 +1,24 @@
 App = Ember.Application.create();
 
+Ember.Application.initializer({
+  name: 'game-setup',
+  initialize: function(container, application) {
+    window.subject = App.Subject.create({
+      debugs: [
+        {name: "x", value: 5},
+        {name: "y", value: 7},
+      ]
+    });
+  }
+});
+
 App.Router.map(function() {
   this.resource('dash', {path: '/'});
 });
 
 App.DashRoute = Ember.Route.extend({
   model: function() {
-    return App.Subject.create({
-
-      debugs: [
-        {name: "x", value: 5},
-        {name: "y", value: 7},
-      ]
-    });
+    return window.subject;
   }
 });
 
